@@ -58,17 +58,17 @@ architecture behavioral of alu_testbench is
                 --assert "0" & q =  "1" & res
                 assert q =  res
                 report
-                   " a=" & integer'image(to_integer(signed(a))) &
-                   " b=" & integer'image(to_integer(signed(b))) &
-                   " ctrl=add" &
+                   " n=" & integer'image(to_integer(signed(a))) &
+                   " m=" & integer'image(to_integer(signed(b))) &
+                   " opcode=add" &
                    " wrong result from ALU:" & integer'image(to_integer(signed(q))) & 
                    " expected:" & integer'image(to_integer(signed(res)))
                 severity warning;
                 assert cout = c
                 report
-                   " a=" & integer'image(to_integer(signed(a))) &
-                   " b=" & integer'image(to_integer(signed(b))) &
-                   " ctrl=add" &
+                   " n=" & integer'image(to_integer(signed(a))) &
+                   " m=" & integer'image(to_integer(signed(b))) &
+                   " opcode=add" &
                    " wrong carry from ALU:"  & std_logic'image(cout) &
                    " expected:" & std_logic'image(c)
                 severity warning;
@@ -87,17 +87,17 @@ architecture behavioral of alu_testbench is
                 --assert "0" & q =  "1" & res
                 assert q =  res
                 report
-                   " a=" & integer'image(to_integer(signed(a))) &
-                   " b=" & integer'image(to_integer(signed(b))) &
-                   " ctrl=sub" &
+                   " n=" & integer'image(to_integer(signed(a))) &
+                   " m=" & integer'image(to_integer(signed(b))) &
+                   " opcode=sub" &
                    " wrong result from ALU:" & integer'image(to_integer(signed(q))) & 
                    " expected:" & integer'image(to_integer(signed(res)))
                 severity warning;
                 assert cout = c
                 report
-                   " a=" & integer'image(to_integer(signed(a))) &
-                   " b=" & integer'image(to_integer(signed(b))) &
-                   " ctrl=sub" &
+                   " n=" & integer'image(to_integer(signed(a))) &
+                   " m=" & integer'image(to_integer(signed(b))) &
+                   " opcode=sub" &
                    " wrong carry from ALU:"  & std_logic'image(cout) &
                    " expected:" & std_logic'image(c)
                 severity warning;
@@ -114,18 +114,18 @@ architecture behavioral of alu_testbench is
                 wait for 10 ns;
                 assert (a nand b) = q
                 report
-                   " a=" & integer'image(to_integer(signed(a))) &
-                   " b=" & integer'image(to_integer(signed(b))) &
-                   " ctrl=nand " & 
+                   " n=" & integer'image(to_integer(signed(a))) &
+                   " m=" & integer'image(to_integer(signed(b))) &
+                   " opcode=nand " &
                    " wrong result from ALU:" & integer'image(to_integer(signed(q))) & 
                    " expected:" & integer'image(to_integer(signed(a nand b)))
                 severity warning;
                 
                 assert cout = '0'
                 report
-                   " a=" & integer'image(to_integer(signed(a))) &
-                   " b=" & integer'image(to_integer(signed(b))) &
-                   " ctrl=nand" &
+                   " n=" & integer'image(to_integer(signed(a))) &
+                   " m=" & integer'image(to_integer(signed(b))) &
+                   " opcode=nand" &
                    " wrong carry from ALU:"  & std_logic'image(cout) &
                    " expected: 0"
                 severity warning;
@@ -143,18 +143,18 @@ architecture behavioral of alu_testbench is
                 wait for 10 ns;
                 assert (a nor b) = q
                 report
-                   " a=" & integer'image(to_integer(signed(a))) &
-                   " b=" & integer'image(to_integer(signed(b))) &
-                   " ctrl=nor " & 
+                   " n=" & integer'image(to_integer(signed(a))) &
+                   " m=" & integer'image(to_integer(signed(b))) &
+                   " opcode=nor " &
                    " wrong result from ALU:" & integer'image(to_integer(signed(q))) & 
                    " expected:" & integer'image(to_integer(signed(a nor b)))
                 severity warning;
 
                 assert cout = '0'
                 report
-                   " a=" & integer'image(to_integer(signed(a))) &
-                   " b=" & integer'image(to_integer(signed(b))) &
-                   " ctrl=nor" &
+                   " n=" & integer'image(to_integer(signed(a))) &
+                   " m=" & integer'image(to_integer(signed(b))) &
+                   " opcode=nor" &
                    " wrong carry from ALU:"  & std_logic'image(cout) &
                    " expected: 0"
                 severity warning;
