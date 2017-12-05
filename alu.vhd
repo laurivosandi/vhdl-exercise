@@ -29,7 +29,8 @@ architecture behavioral of alu is
     signal adder_carry_out   : std_logic;
     signal operation_type    : std_logic; 
     signal sub               : std_logic;
-    signal chng 	     : std_logic; 	
+    signal chng 	     : std_logic; 
+    signal minus             : std_logic;        (3 downto 0);
 
 begin
     -- Make sense from control bits
