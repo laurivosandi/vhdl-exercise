@@ -29,7 +29,7 @@ architecture behavioral of alu is
     signal adder_carry_out   : std_logic;
     signal operation_type    : std_logic; 
     signal sub               : std_logic;
-    signal chng 	     : std_logic; 
+    
     signal minus             : std_logic;        (3 downto 0);
 
 begin
@@ -44,15 +44,15 @@ begin
     m_inverted(2) <= not m(2);
     m_inverted(3) <= not m(3);
 
-   chng <= (not m) when minus = '1' else
+   minus <= m when sub = '0' else
 	m_inverted;
 
     -- Addition
     adder_instance: carry_ripple_adder
         port map(
             a => n,
-            b => chng,
-            ci => minus,
+            b => minus,
+            ci => sub,
             s => adder_result,
             co => adder_carry_out
         );
